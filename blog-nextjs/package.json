@@ -3,8 +3,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "build": "npm run build:sanity && pwd && npm run build:web",
+    "build:sanity": "cd ../sanity-studio && sanity build ../public/studio -y && cd ../blog-nextjs",
+    "build:web": "next build",
+    "start:web": "next start",
+    "start:sanity": "cp .env ../sanity-studio/.env.development && cd ../sanity-studio && sanity-start",
     "lint": "next lint"
   },
   "dependencies": {
