@@ -4,20 +4,21 @@
   "scripts": {
     "dev": "next dev",
     "build": "npm run build:sanity && pwd && npm run build:web",
-    "build:sanity": "cd ../sanity-studio && npm install && sanity build ../public/studio -y && cd ../blog-nextjs",
+    "build:sanity": "cd ../studio && npm install && sanity build ../public/studio -y && cd ../blog-nextjs",
     "build:web": "next build",
     "start:web": "next start",
-    "start:sanity": "cp .env ../sanity-studio/.env.development && cd ../sanity-studio && sanity-start",
+    "start:sanity": "cp .env ../studio/.env.development && cd ../studio && sanity start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@sanity/cli": "^2.23.1",
     "next": "12.0.7",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
   "devDependencies": {
     "eslint": "8.4.1",
-    "eslint-config-next": "12.0.7"
+    "eslint-config-next": "12.0.7",
+    "@sanity/cli": "^2.0.5",
+    "lerna": "^4.0.0"
   }
 }

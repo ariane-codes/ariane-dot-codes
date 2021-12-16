@@ -6,10 +6,6 @@
   "main": "package.json",
   "author": "Ariane <ariane.ernandorena@gmail.com>",
   "license": "UNLICENSED",
-  "scripts": {
-    "start": "sanity start",
-    "build": "sanity build"
-  },
   "keywords": [
     "sanity"
   ],

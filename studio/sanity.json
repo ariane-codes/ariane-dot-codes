@@ -2,7 +2,7 @@
   "root": true,
   "project": {
     "name": "ariane-dot-codes",
-    "basePath": "/sanity-studio"
+    "basePath": "/studio"
   },
   "api": {
     "projectId": "q9kwn69s",
