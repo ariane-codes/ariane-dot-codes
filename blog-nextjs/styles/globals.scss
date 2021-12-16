@@ -1,0 +1,11 @@
+@import "./variables/fonts";
+@import "./variables/colors";
+
+html, body 
+{
+	font-family: $text-font;
+
+	h1 {
+		font-family: $main-title-font;
+	}
+}
