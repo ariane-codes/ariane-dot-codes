@@ -1,6 +1,10 @@
 name: Cypress Tests
 
-on: [push]
+on:
+  push:
+    paths:
+      - "blog-nextjs"
+      - ".github/workflows/main.yml"
 
 jobs:
   cypress-run:
@@ -9,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          project: blog-nextjs
 
       # Install NPM dependencies, cache them correctly
       # and run all Cypress tests
@@ -17,11 +23,13 @@ jobs:
         with:
           # Specify Browser since container image is compile with Firefox
           browser: firefox
+          project: blog-nextjs
       
       - name: Cypress Chrome
         uses: cypress-io/github-action@v2
         with:
           browser: chrome
+          project: blog-nextjs
 
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
