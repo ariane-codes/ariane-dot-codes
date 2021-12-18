@@ -22,7 +22,6 @@ jobs:
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         # Recommended: pass the GitHub token lets this action correctly
         # determine the unique run id necessary to re-run the checks
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   chrome:
     runs-on: ubuntu-latest
@@ -43,7 +42,6 @@ jobs:
       image: cypress/browsers:node12.18.3-chrome87-ff82
       options: --user 1001
     steps:
-      - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
         with:
           browser: firefox
