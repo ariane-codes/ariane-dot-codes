@@ -16,6 +16,7 @@ jobs:
       - name: Cypress Electron
         uses: cypress-io/github-action@v2
         with:
+          record: true
           build: npm run build:web
           start: npm run start:web
           working-directory: blog-nextjs
