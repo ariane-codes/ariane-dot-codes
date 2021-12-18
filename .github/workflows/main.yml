@@ -24,7 +24,7 @@ jobs:
         # determine the unique run id necessary to re-run the checks
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  cypress-chrome:
+  chrome:
     runs-on: ubuntu-latest
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
@@ -36,24 +36,18 @@ jobs:
       env:
         CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        # Recommended: pass the GitHub token lets this action correctly
-        # determine the unique run id necessary to re-run the checks
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  cypress-firefox:
+  firefox:
     runs-on: ubuntu-latest
-    container: 
+    container:
       image: cypress/browsers:node12.18.3-chrome87-ff82
       options: --user 1001
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v2
         with:
           browser: firefox
           working-directory: blog-nextjs
         env:
         CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        # Recommended: pass the GitHub token lets this action correctly
-        # determine the unique run id necessary to re-run the checks
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
