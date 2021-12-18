@@ -28,13 +28,13 @@ jobs:
     container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
       - name: Cypress Chrome
-      uses: cypress-io/github-action@v2
-      with:
-        browser: chrome
-        working-directory: blog-nextjs
-      env:
-        CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          working-directory: blog-nextjs
+        env:
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   firefox:
     runs-on: ubuntu-latest
@@ -42,7 +42,8 @@ jobs:
       image: cypress/browsers:node12.18.3-chrome87-ff82
       options: --user 1001
     steps:
-      - uses: cypress-io/github-action@v2
+      - name: Cypress Firefox
+        uses: cypress-io/github-action@v2
         with:
           browser: firefox
           working-directory: blog-nextjs
