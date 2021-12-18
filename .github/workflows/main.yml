@@ -9,44 +9,44 @@ on:
 jobs:
   cypress-electron:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
     steps:
-      - name: Cypress Firefox
-        uses: cypress-io/github-action@v2
-        with:
-          # Specify Browser since container image is compile with Firefox
-          browser: firefox
-          working-directory: blog-nextjs
-        env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        # Recommended: pass the GitHub token lets this action correctly
-        # determine the unique run id necessary to re-run the checks
+      - name: Checkout
+        uses: actions/checkout@v2
 
-  chrome:
-    runs-on: ubuntu-latest
-    container: cypress/browsers:node12.18.3-chrome87-ff82
-    steps:
-      - name: Cypress Chrome
+      - name: Cypress Electron
         uses: cypress-io/github-action@v2
         with:
-          browser: chrome
+          build: npm run build:web
+          start: npm run start:web
           working-directory: blog-nextjs
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-  firefox:
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:node12.18.3-chrome87-ff82
-      options: --user 1001
-    steps:
-      - name: Cypress Firefox
-        uses: cypress-io/github-action@v2
-        with:
-          browser: firefox
-          working-directory: blog-nextjs
-        env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+  # chrome:
+  #   runs-on: ubuntu-latest
+  #   container: cypress/browsers:node12.18.3-chrome87-ff82
+  #   steps:
+  #     - name: Cypress Chrome
+  #       uses: cypress-io/github-action@v2
+  #       with:
+  #         browser: chrome
+  #         working-directory: blog-nextjs
+  #       env:
+  #         CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+  #         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+  # firefox:
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: cypress/browsers:node12.18.3-chrome87-ff82
+  #     options: --user 1001
+  #   steps:
+  #     - name: Cypress Firefox
+  #       uses: cypress-io/github-action@v2
+  #       with:
+  #         browser: firefox
+  #         working-directory: blog-nextjs
+  #       env:
+  #         CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+  #         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
