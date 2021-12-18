@@ -1,3 +1,9 @@
 {
-    "projectId": "yerotr"
+    "projectId": "yerotr",
+    "env": {
+        "environment": "production",
+        "PROJECT_ID": "",
+        "RECORD_KEY": "",
+        "GITHUB_TOKEN": ""
+    }
 }
