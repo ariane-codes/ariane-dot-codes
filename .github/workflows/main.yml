@@ -16,13 +16,15 @@ jobs:
       - name: Cypress Electron
         uses: cypress-io/github-action@v2
         with:
-          record: true
           build: npm run build:web
           start: npm run start:web
+          record: true
           working-directory: blog-nextjs
+          
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   # chrome:
   #   runs-on: ubuntu-latest
