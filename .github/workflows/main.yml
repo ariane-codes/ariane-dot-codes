@@ -28,20 +28,20 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    pull-req-main:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v2
-          with:
-            ref: main
-        - name: Update main after test branch passed tests
-          run: |
-            git fetch origin test:test
-            git reset --hard test
-        - name: Create pull request
-          uses: peter-evans/create-pull-request@v3
-          with:
-            branch: main-promotion
+  pull-req-main:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Update main after test branch passed tests
+        run: |
+          git fetch origin test:test
+          git reset --hard test
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: main-promotion
 
 
     
