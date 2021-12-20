@@ -4,6 +4,10 @@
 html, body 
 {
 	font-family: $text-font;
+	margin: 0;
+	padding: 0;
+	background-color: $cream;
+	width: 100vw;
 
 	h1 {
 		font-family: $main-title-font;

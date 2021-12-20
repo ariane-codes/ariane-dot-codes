@@ -2,6 +2,8 @@ name: Cypress Tests
 
 on:
   push:
+    branches:
+      - test
     paths:
       - "blog-nextjs/**"
       - ".github/workflows/main.yml"
@@ -25,6 +27,28 @@ jobs:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  pull-req-main:
+    runs-on: ubuntu-latest
+    needs: [cypress-electron]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Update main after test branch passed tests
+        run: |
+          git fetch origin test:test
+          git reset --hard test
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: test
+          commit-message: ${{ github.event.head_commit.message }}
+          title: PR for ${{ github.event.head_commit.message }}
+          body: PR created after running Cypress in test branch. Ready to be merged to main.
+
+
+    
 
   # chrome:
   #   runs-on: ubuntu-latest
