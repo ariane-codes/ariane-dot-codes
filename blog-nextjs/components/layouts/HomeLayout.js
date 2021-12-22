@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 import styles from "../../styles/components/layouts/HomeLayout.module.scss"
 
 
-const Layout = ({ children, metaDescription, metaTitle }) => {
+const HomeLayout = ({ children, metaDescription, metaTitle }) => {
     return (
         <>
             <MetaHead description={metaDescription} title={metaTitle}/>
@@ -14,4 +14,4 @@ const Layout = ({ children, metaDescription, metaTitle }) => {
     )
 }
 
-export default Layout;
+export default HomeLayout;

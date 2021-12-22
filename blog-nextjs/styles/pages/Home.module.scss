@@ -1,3 +1,62 @@
-.firstsection {
-    height: 100rem;
+@import "../variables/colors";
+@import "../variables/breakpoints";
+@import "../variables/fonts";
+@import "../variables/measures";
+
+
+.presentation-wrapper {
+    height: calc(100vh - #{$navbar-height});
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    .title-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    
+    }
+
+    .presentation-container {
+        width: 100%;
+    }
+
 }
+
+@include media($from: "sm") {
+    // Min width 576px onwards.
+
+
+
+}
+@include media($from: "md") {
+    // Min width 768px onwards.
+    
+}
+@include media($from: "lg") {
+    // Min width 992px onwards.
+
+    .presentation-wrapper {
+    
+        .title-container {
+            width: 50%;
+        }
+    
+        .presentation-container {
+            width: 50%;
+        }
+    
+    }
+    
+}
+@include media($from: "xl") {
+    // Min width 1200px onwards.
+    
+}
+@include media($from: "xxl") {
+    // Min width 1400px onwards.
+    
+}
+

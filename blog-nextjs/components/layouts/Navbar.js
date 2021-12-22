@@ -1,44 +1,73 @@
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import { HiMenu } from "react-icons/hi";
+
+
+import cx from "classnames";
 import styles from "../../styles/components/layouts/Navbar.module.scss";
 
 const Navbar = () => {
 
     const { asPath } = useRouter();
+    const [ isMenuOpen, setIsMenuOpen ] = useState(false);
+
+    const handleMenu = () => {
+        setIsMenuOpen(prev => !prev);
+    }
+
+    const NavLink = ({ href, children }) => {
+
+        let isCurrent = asPath === href ? "page" : false
+
+        return (
+            <Link href={href} passHref>
+                <a 
+                className={cx(styles.links, { [styles["current-links"]]: isCurrent })} 
+                onClick={() => setIsMenuOpen(false)}
+                aria-current={isCurrent}
+                >
+                    {children}
+                </a>
+            </Link>
+        )
+    }
 
     return (
-        <nav className={styles["navbar-outer"]}>
+        <nav className={styles["navbar-outer"]} aria-label="Main Navigation Bar">
             <div className={styles["navbar-inner"]}>
 
-                <NavLink href="/" >
-                    <strong>Ariane.</strong>codes
+                <NavLink  href="/" >
+                    <div className={styles.ariane}><strong>Ariane.</strong>codes</div>
                 </NavLink>
             
                 <div className={styles["buttons-wrapper"]}>
-                    <NavLink className={styles.navlink} href="/projects" >projects</NavLink>
-                    <NavLink className={styles.navlink} href="/blog" >blog</NavLink>
-                    <NavLink className={styles.navlink} href="/about" >about</NavLink>
-                    <NavLink className={styles.navlink} href="/contact" >contact</NavLink>
+                    <ul>
+                        <li><NavLink href="/projects" >projects</NavLink></li>
+                        <li><NavLink href="/blog" >blog</NavLink></li>
+                        <li><NavLink href="/about" >about</NavLink></li>
+                        <li><NavLink href="/contact" >contact</NavLink></li>
+                    </ul>                    
                 </div>
+
+                <button className={styles["menu-icon"]} onClick={handleMenu}>
+                    <HiMenu/>
+                </button>
             </div>
+
+            <ul className={cx(styles["dropdown-wrapper"], { [styles["open"]]: isMenuOpen })}>
+                <li className="item-1"><NavLink href="/projects" >projects</NavLink></li>
+                <li className="item-2"><NavLink href="/blog" >blog</NavLink></li>
+                <li className="item-3"><NavLink href="/about" >about</NavLink></li>
+                <li className="item-4"><NavLink href="/contact" >contact</NavLink></li>
+            </ul>
             
         </nav>
     )
 
 }
 
-const NavLink = ({ href, children }) => {
 
-
-    return (
-        <Link href={href} passHref>
-            <a className={styles.links}>
-                {children}
-            </a>
-        </Link>
-    )
-}
 
 export default Navbar;
