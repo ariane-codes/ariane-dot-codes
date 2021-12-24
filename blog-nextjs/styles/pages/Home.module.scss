@@ -3,27 +3,74 @@
 @import "../variables/fonts";
 @import "../variables/measures";
 
+.inner {
+    padding: 0 1rem;
+}
 
 .presentation-wrapper {
     height: calc(100vh - #{$navbar-height});
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-start;
 
-    .title-container {
+    .presentation-text-wrapper {
         width: 100%;
         display: flex;
-        justify-content: center;
         align-items: center;
-        align-content: center;
-    
+
+        .p1 {
+            font-size: 20px;
+        }
+
+        .p2 {
+            font-size: 18px;
+            color: $gray-70;
+        }
+
+        .icon-wrapper {
+            font-size: 22px;
+            color: $purple-200;
+            
+            > * {
+                margin-right: 0.25rem;
+            }
+        }
     }
 
-    .presentation-container {
-        width: 100%;
+
+}
+
+.title-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+
+    .inner {
+        padding-top: 1.5rem;
+    }
+
+    h1 {
+        display: flex;
+        flex-direction: column;
+
+        .hello {
+            color: $gray-70;
+            font-size: 2rem;
+        }
+
+        .ariane {
+            color: $purple-200;
+            font-size: 5rem;
+            margin-top: -2rem;
+            font-weight: 800;
+        }
     }
 
 }
+
+
 
 @include media($from: "sm") {
     // Min width 576px onwards.
@@ -32,27 +79,45 @@
 
 }
 @include media($from: "md") {
-    // Min width 768px onwards.
+    .inner {
+        padding: 0 2rem;
+    }
+
+    .presentation-wrapper {
+        .presentation-text-wrapper {
+            .icon-wrapper {
+                font-size: 30px;
+            }
+        }
+    }
+
     
 }
 @include media($from: "lg") {
     // Min width 992px onwards.
 
     .presentation-wrapper {
-    
-        .title-container {
-            width: 50%;
-        }
-    
-        .presentation-container {
-            width: 50%;
-        }
+        flex-direction: row;
+        min-height: calc(768px - #{$navbar-height});
     
     }
     
 }
 @include media($from: "xl") {
     // Min width 1200px onwards.
+
+    .inner > h1 {
+        .hello {
+            font-size: 3rem;
+        }
+
+        .ariane {
+            font-size: 7rem;
+            margin-top: -3rem;
+            font-weight: 800;
+            margin-left: 1rem;
+        }
+    }
     
 }
 @include media($from: "xxl") {

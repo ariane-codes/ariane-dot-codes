@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
 import { HiMenu } from "react-icons/hi";
 
+import { capitalizeFirstLetter } from "../../utils/capitalize";
 
 import cx from "classnames";
 import styles from "../../styles/components/layouts/Navbar.module.scss";
@@ -24,6 +25,7 @@ const Navbar = () => {
         return (
             <Link href={href} passHref>
                 <a 
+                title={href === "/" ? "Ariane.codes" : capitalizeFirstLetter(href.substring(1))}
                 className={cx(styles.links, { [styles["current-links"]]: isCurrent })} 
                 onClick={() => setIsMenuOpen(false)}
                 aria-current={isCurrent}

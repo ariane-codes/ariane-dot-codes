@@ -9,7 +9,7 @@ const HomeLayout = ({ children, metaDescription, metaTitle }) => {
         <>
             <MetaHead description={metaDescription} title={metaTitle}/>
             <Navbar />
-            <main >{children}</main>
+            <main className={styles.main}>{children}</main>
         </>
     )
 }
