@@ -13,9 +13,12 @@
     "cypress:headless": "cypress run"
   },
   "dependencies": {
+    "@sanity/client": "^2.23.2",
+    "classnames": "^2.3.1",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1"
   },
   "devDependencies": {
     "@sanity/cli": "^2.0.5",
