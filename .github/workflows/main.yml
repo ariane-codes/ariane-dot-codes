@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Test Env Vars
-        run: echo "The project id is ${{process.env.NEXT_PUBLIC_SANITY_DATASET}}"
+        run: echo "The project id is ${{secrets.NEXT_PUBLIC_SANITY_DATASET}}"
       - name: Cypress Electron
         uses: cypress-io/github-action@v2
         with:
