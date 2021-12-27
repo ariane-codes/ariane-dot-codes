@@ -1,4 +1,4 @@
-import sanityClient from "./sanityClient"
+import SanityClient from "./sanityClient";
 
 export const fetchPlainTexts = async (uuid) => {
 
@@ -6,7 +6,7 @@ export const fetchPlainTexts = async (uuid) => {
 
     try {
         let groq = `*[_type == 'plainText' && uuid == "${uuid}"]`;
-        const plainTextResult = await sanityClient.fetch(groq);
+        const plainTextResult = await SanityClient.fetch(groq);
         
         if (plainTextResult.length === 0) {
             throw Error(`No plain text found for UUID ${uuid}`);
