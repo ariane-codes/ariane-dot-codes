@@ -58,7 +58,7 @@ const Navbar = () => {
                 </button>
             </div>
 
-            <ul className={cx(styles["dropdown-wrapper"], { [styles["open"]]: isMenuOpen })}>
+            <ul className={cx(styles["dropdown-wrapper"], "shadow-bottom", { [styles["open"]]: isMenuOpen })}>
                 <li className="item-1"><NavLink href="/projects" >projects</NavLink></li>
                 <li className="item-2"><NavLink href="/blog" >blog</NavLink></li>
                 <li className="item-3"><NavLink href="/about" >about</NavLink></li>

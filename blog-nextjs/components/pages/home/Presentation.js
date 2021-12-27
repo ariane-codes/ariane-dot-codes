@@ -6,8 +6,9 @@ const paragraph1 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mae
 const paragraph2 = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae lectus lectus."
 
 
-const Presentation = () => {
-
+const Presentation = ({ paragraph1 }) => {
+    console.log("Paragraph 1")
+    console.log(paragraph1)
     return (
         <section className={styles["presentation-wrapper"]}>
 
@@ -22,7 +23,7 @@ const Presentation = () => {
 
             <div className={styles["presentation-text-wrapper"]}>
                 <div className={styles["inner"]}>
-                    <p className={styles.p1}>{paragraph1}</p>
+                    <p className={styles.p1}>{paragraph1.text}</p>
                     <p className={styles.p2}>{paragraph2}</p>
                     <div className={styles["icon-wrapper"]}>
                         <a aria-label="Twitter" title="Twitter" href="https://www.twitter.com/ArianeCodes">
