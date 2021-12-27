@@ -44,7 +44,7 @@ const Navbar = () => {
                     <div className={styles.ariane}><strong>Ariane.</strong>codes</div>
                 </NavLink>
             
-                <div className={styles["buttons-wrapper"]}>
+                <div className={styles["buttons-wrapper"]} data-cy="buttons-wrapper">
                     <ul>
                         <li><NavLink href="/projects" >projects</NavLink></li>
                         <li><NavLink href="/blog" >blog</NavLink></li>
@@ -53,12 +53,13 @@ const Navbar = () => {
                     </ul>                    
                 </div>
 
-                <button className={styles["menu-icon"]} onClick={handleMenu}>
+                <button className={styles["menu-icon"]} data-cy="menu-icon" onClick={handleMenu}>
                     <HiMenu/>
                 </button>
             </div>
 
-            <ul className={cx(styles["dropdown-wrapper"], "shadow-bottom", { [styles["open"]]: isMenuOpen })}>
+            <ul data-cy="dropdown-wrapper"
+            className={cx(styles["dropdown-wrapper"], "shadow-bottom", { [styles["open"]]: isMenuOpen })}>
                 <li className="item-1"><NavLink href="/projects" >projects</NavLink></li>
                 <li className="item-2"><NavLink href="/blog" >blog</NavLink></li>
                 <li className="item-3"><NavLink href="/about" >about</NavLink></li>
