@@ -5,5 +5,6 @@
         "PROJECT_ID": "",
         "RECORD_KEY": "",
         "GITHUB_TOKEN": ""
-    }
+    },
+    "baseUrl": "http://localhost:3000"
 }
