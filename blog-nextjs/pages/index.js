@@ -1,5 +1,6 @@
 import HomeLayout from '../components/layouts/HomeLayout';
 import Presentation from '../components/pages/home/Presentation';
+import Projects from '../components/pages/home/Projects';
 
 import { fetchPlainTexts } from '../lib/sanity/fetchPlainTexts';
 
@@ -9,6 +10,7 @@ const Home = ({ paragraph1, paragraph2 }) => {
     return (
         <>
             <Presentation paragraph1={paragraph1} paragraph2={paragraph2}/>
+            <Projects />
         </>
     )
 }
