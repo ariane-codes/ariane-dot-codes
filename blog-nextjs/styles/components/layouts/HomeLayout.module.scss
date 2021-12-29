@@ -1,3 +1,10 @@
 .main {
     display: flex;
 }
+
+.footer {
+    display: flex;
+    min-height: 2rem;
+    justify-content: center;
+    align-items: center;
+}
