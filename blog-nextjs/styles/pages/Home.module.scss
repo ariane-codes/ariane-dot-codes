@@ -8,11 +8,11 @@
 }
 
 .presentation-wrapper {
-    height: calc(100vh - #{$navbar-height});
+    height: calc(100vh - #{$navbar-height} - 7rem);
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 
     .presentation-text-wrapper {
         width: 100%;
@@ -47,6 +47,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    margin-top: -7rem;
 
     .inner {
         padding-top: 1.5rem;
@@ -71,12 +72,24 @@
 
 }
 
+.wave-divider {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
 
+.projects-wrapper {
+    background-color: $purple-200;
+}
 
 @include media($from: "sm") {
     // Min width 576px onwards.
 
-
+    .title-wrapper {
+        margin-top: 0;
+    }
 
 }
 @include media($from: "md") {
