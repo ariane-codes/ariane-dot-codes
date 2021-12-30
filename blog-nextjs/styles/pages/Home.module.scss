@@ -90,6 +90,32 @@
 
 .projects-wrapper {
     background-color: $purple-200;
+    color: $cream;
+}
+
+.section-title-wrapper {
+
+    display: flex;
+    margin-left: 1rem;
+
+    .dots {
+        width: 5rem;
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        justify-content: space-evenly;
+    }
+
+    a {
+        text-transform: none;
+        color: unset;
+        text-decoration: none;
+    }
+
+
+    h2 {
+        font-size: 2rem;
+    }
 }
 
 @include media($from: "sm") {
@@ -112,6 +138,17 @@
             .icon-wrapper {
                 font-size: 30px;
             }
+        }
+    }
+
+    .section-title-wrapper {    
+        .dots {
+            width: 6rem;
+            font-size: 1rem;
+        }
+
+        h2 {
+            font-size: 3rem;
         }
     }
 
