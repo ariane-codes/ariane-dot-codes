@@ -2,6 +2,8 @@ import { useEffect  } from "react";
 import Image from "next/image";
 import WaveA from "../../../public/images/wave-dividers/purple-wave-a.svg";
 import WaveB from "../../../public/images/wave-dividers/purple-wave-b.svg";
+import WaveC from "../../../public/images/wave-dividers/purple-wave-c.svg";
+
 import useMediaQuery from "../../../hooks/useMediaQuery";
 
 import styles from "../../../styles/pages/Home.module.scss";
@@ -14,6 +16,7 @@ const Projects = () => {
         <>
         <div className={styles["wave-divider"]}>
             { isAtLeastMd ? <WaveA/> : <WaveB/>}
+            {/* <WaveC/> */}
         </div>
         <section className={styles["projects-wrapper"]}>
             Projects here

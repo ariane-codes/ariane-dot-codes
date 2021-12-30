@@ -2,13 +2,14 @@
 @import "../variables/breakpoints";
 @import "../variables/fonts";
 @import "../variables/measures";
+@import "../variables/animations";
 
 .inner {
     padding: 0 1rem;
 }
 
 .presentation-wrapper {
-    height: calc(100vh - #{$navbar-height} - 7rem);
+    height: calc(100vh - #{$navbar-height} - 10rem);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -78,6 +79,13 @@
     overflow: hidden;
     margin: 0;
     padding: 0;
+    margin-top: -100px;
+
+    svg {
+        display: block;
+        transform-origin: bottom;
+        animation: animateWave 1000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    }
 }
 
 .projects-wrapper {
@@ -98,6 +106,8 @@
     }
 
     .presentation-wrapper {
+        height: calc(100vh - #{$navbar-height} - 15rem);
+
         .presentation-text-wrapper {
             .icon-wrapper {
                 font-size: 30px;
