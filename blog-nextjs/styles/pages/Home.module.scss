@@ -2,16 +2,18 @@
 @import "../variables/breakpoints";
 @import "../variables/fonts";
 @import "../variables/measures";
+@import "../variables/animations";
 
 .inner {
     padding: 0 1rem;
 }
 
 .presentation-wrapper {
-    height: calc(100vh - #{$navbar-height});
+    height: calc(100vh - #{$navbar-height} - 10rem);
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: center;
 
     .presentation-text-wrapper {
         width: 100%;
@@ -46,6 +48,7 @@
     justify-content: center;
     align-items: center;
     align-content: center;
+    margin-top: -7rem;
 
     .inner {
         padding-top: 1.5rem;
@@ -70,12 +73,57 @@
 
 }
 
+.wave-divider {
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    margin-top: -100px;
 
+    svg {
+        display: block;
+        transform-origin: bottom;
+        animation: animateWave 1000ms cubic-bezier(0.23, 1, 0.32, 1) forwards;
+    }
+}
+
+.projects-wrapper {
+    background-color: $purple-200;
+    color: $cream;
+}
+
+.section-title-wrapper {
+
+    display: flex;
+    margin-left: 1rem;
+
+    .dots {
+        width: 5rem;
+        display: flex;
+        align-items: center;
+        font-size: 0.8rem;
+        justify-content: space-evenly;
+    }
+
+    a {
+        text-transform: none;
+        color: unset;
+        text-decoration: none;
+    }
+
+
+    h2 {
+        font-size: 2rem;
+    }
+}
 
 @include media($from: "sm") {
     // Min width 576px onwards.
 
-
+    .title-wrapper {
+        margin-top: 0;
+    }
 
 }
 @include media($from: "md") {
@@ -84,10 +132,23 @@
     }
 
     .presentation-wrapper {
+        height: calc(100vh - #{$navbar-height} - 15rem);
+
         .presentation-text-wrapper {
             .icon-wrapper {
                 font-size: 30px;
             }
+        }
+    }
+
+    .section-title-wrapper {    
+        .dots {
+            width: 6rem;
+            font-size: 1rem;
+        }
+
+        h2 {
+            font-size: 3rem;
         }
     }
 
