@@ -10,7 +10,6 @@
 
 .presentation-wrapper {
     min-height: calc(100vh - #{$navbar-height});
-    // width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -120,7 +119,8 @@
     }
 
     .title {
-
+        display: flex;
+        align-items: center;
     }
 
     .description {
@@ -135,6 +135,7 @@
     .title-wrapper {
         margin-top: 0;
     }
+
 }
 
 @include media($from: "sm", $and: "max-height: 500px") {
@@ -186,6 +187,7 @@
     .section-title-wrapper {
         .description {
             width: 60%;
+            font-size: 1.2rem;
             margin-left: auto;
         }
     }

@@ -9,7 +9,7 @@ import WaveB from "../../../public/images/wave-dividers/purple-wave-b.svg";
 import WaveC from "../../../public/images/wave-dividers/purple-wave-c.svg";
 import { FaCircle } from "react-icons/fa";
 
-const Projects = () => {
+const Projects = ({ description }) => {
 
     const isAtLeastMd = useMediaQuery(768);
     
@@ -30,9 +30,7 @@ const Projects = () => {
                         </Link>
                     </div>
                     <div className={styles["description"]}>
-                        <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae lectus lectus. Donec sit amet nulla eget nunc egestas dapibus. Suspendisse potenti.
-                        </p>
+                        <p>{description.text}</p>
                     </div>
                     
                     
