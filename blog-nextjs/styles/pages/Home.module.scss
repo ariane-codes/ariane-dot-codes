@@ -10,7 +10,7 @@
 
 .presentation-wrapper {
     min-height: calc(100vh - #{$navbar-height});
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,9 +138,9 @@
 }
 
 @include media($from: "sm", $and: "max-height: 500px") {
+    // Fixing things for landscape phones
     .wave-divider {
         margin-top: 0;
-
     }
 }
 
@@ -182,6 +182,13 @@
         flex-direction: row;
         min-height: calc(768px - #{$navbar-height});
     }
+
+    .section-title-wrapper {
+        .description {
+            width: 60%;
+            margin-left: auto;
+        }
+    }
     
 }
 @include media($from: "xl") {
@@ -189,6 +196,10 @@
 
     .presentation-wrapper {
         min-height: calc(900px - #{$navbar-height});
+    }
+
+    .presentation-wrapper, .projects-wrapper {
+        padding: 0 6rem;
     }
 
     .inner > h1 {
@@ -206,6 +217,10 @@
     
 }
 @include media($from: "xxl") {
+
+    .presentation-wrapper, .projects-wrapper {
+        padding: 0 15vw;
+    }
     // Min width 1400px onwards.
     // .presentation-wrapper {
     //     min-height: calc(900px - #{$navbar-height});
