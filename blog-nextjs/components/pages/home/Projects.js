@@ -24,12 +24,18 @@ const Projects = () => {
 
                 <div className={styles["section-title-wrapper"]}>
                     <div className={styles["dots"]}><FaCircle/></div>
-                    <Link href="/projects">
-                        <a><h2>Projects</h2></a>
-                    </Link>
-                    <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae lectus lectus. Donec sit amet nulla eget nunc egestas dapibus. Suspendisse potenti.
-                    </p>
+                    <div className={styles["title"]}>
+                        <Link href="/projects">
+                            <a><h2>Projects</h2></a>
+                        </Link>
+                    </div>
+                    <div className={styles["description"]}>
+                        <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vitae lectus lectus. Donec sit amet nulla eget nunc egestas dapibus. Suspendisse potenti.
+                        </p>
+                    </div>
+                    
+                    
                 </div>                
             </div>    
         </section>

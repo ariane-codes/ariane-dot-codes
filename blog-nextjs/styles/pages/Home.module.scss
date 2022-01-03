@@ -9,7 +9,7 @@
 }
 
 .presentation-wrapper {
-    height: calc(100vh - #{$navbar-height} - 10rem);
+    min-height: calc(100vh - #{$navbar-height});
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -97,6 +97,7 @@
 
     display: flex;
     margin-left: 1rem;
+    flex-wrap: wrap;
 
     .dots {
         width: 5rem;
@@ -115,6 +116,16 @@
 
     h2 {
         font-size: 2rem;
+        margin: 0;
+    }
+
+    .title {
+
+    }
+
+    .description {
+        width: 100%;
+        font-size: 1.05rem;
     }
 }
 
@@ -124,15 +135,25 @@
     .title-wrapper {
         margin-top: 0;
     }
-
 }
+
+@include media($from: "sm", $and: "max-height: 500px") {
+    .wave-divider {
+        margin-top: 0;
+
+    }
+}
+
+
 @include media($from: "md") {
+    // Min width 768px onwards
+
     .inner {
         padding: 0 2rem;
     }
 
     .presentation-wrapper {
-        height: calc(100vh - #{$navbar-height} - 15rem);
+        min-height: calc(100vh - #{$navbar-height});
 
         .presentation-text-wrapper {
             .icon-wrapper {
@@ -160,12 +181,15 @@
     .presentation-wrapper {
         flex-direction: row;
         min-height: calc(768px - #{$navbar-height});
-    
     }
     
 }
 @include media($from: "xl") {
     // Min width 1200px onwards.
+
+    .presentation-wrapper {
+        min-height: calc(900px - #{$navbar-height});
+    }
 
     .inner > h1 {
         .hello {
@@ -183,6 +207,8 @@
 }
 @include media($from: "xxl") {
     // Min width 1400px onwards.
-    
+    // .presentation-wrapper {
+    //     min-height: calc(900px - #{$navbar-height});
+    // }
 }
 
