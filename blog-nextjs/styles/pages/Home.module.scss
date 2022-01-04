@@ -9,8 +9,7 @@
 }
 
 .presentation-wrapper {
-    height: calc(100vh - #{$navbar-height} - 10rem);
-    width: 100%;
+    min-height: calc(100vh - #{$navbar-height});
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -91,12 +90,20 @@
 .projects-wrapper {
     background-color: $purple-200;
     color: $cream;
+    min-height: 300px;
+
+    .projects-display {
+        width: 100%;
+        height: 60vh;
+        padding: 2rem 0;
+    }
 }
 
 .section-title-wrapper {
 
     display: flex;
     margin-left: 1rem;
+    flex-wrap: wrap;
 
     .dots {
         width: 5rem;
@@ -115,6 +122,17 @@
 
     h2 {
         font-size: 2rem;
+        margin: 0;
+    }
+
+    .title {
+        display: flex;
+        align-items: center;
+    }
+
+    .description {
+        width: 100%;
+        font-size: 1.05rem;
     }
 }
 
@@ -126,13 +144,30 @@
     }
 
 }
+
+@include media($from: "sm", $and: "max-height: 500px") {
+    // Fixing things for landscape phones
+    .wave-divider {
+        margin-top: 0;
+    }
+
+    .projects-wrapper {
+        .projects-display {
+            height: 70vh;
+        }
+    }
+}
+
+
 @include media($from: "md") {
+    // Min width 768px onwards
+
     .inner {
         padding: 0 2rem;
     }
 
     .presentation-wrapper {
-        height: calc(100vh - #{$navbar-height} - 15rem);
+        min-height: calc(100vh - #{$navbar-height});
 
         .presentation-text-wrapper {
             .icon-wrapper {
@@ -152,6 +187,12 @@
         }
     }
 
+    .projects-wrapper {
+        .projects-display {
+            height: 50vh;
+        }
+    }
+
     
 }
 @include media($from: "lg") {
@@ -160,12 +201,33 @@
     .presentation-wrapper {
         flex-direction: row;
         min-height: calc(768px - #{$navbar-height});
-    
+    }
+
+    .section-title-wrapper {
+        .description {
+            width: 60%;
+            font-size: 1.2rem;
+            margin-left: auto;
+        }
+    }
+
+    .projects-wrapper {
+        .projects-display {
+            height: 40vh;
+        }
     }
     
 }
 @include media($from: "xl") {
     // Min width 1200px onwards.
+
+    .presentation-wrapper {
+        min-height: calc(900px - #{$navbar-height});
+    }
+
+    .presentation-wrapper, .projects-wrapper {
+        padding: 0 6rem;
+    }
 
     .inner > h1 {
         .hello {
@@ -180,9 +242,20 @@
         }
     }
     
+    .projects-wrapper {
+        .projects-display {
+            height: 30vh;
+        }
+    }
 }
 @include media($from: "xxl") {
+
+    .presentation-wrapper, .projects-wrapper {
+        padding: 0 15vw;
+    }
     // Min width 1400px onwards.
-    
+    // .presentation-wrapper {
+    //     min-height: calc(900px - #{$navbar-height});
+    // }
 }
 
